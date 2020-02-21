@@ -3,6 +3,7 @@ https://www.jianshu.com/p/56bb01df8ac7
 
 滑动窗口：两个指针
 https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/solution/hua-dong-chuang-kou-tong-yong-si-xiang-jie-jue-zi-/
+
 vector<int> findAnagrams(string s, string p) {
         unordered_map<char, int> window;
         unordered_map<char, int> needs;
@@ -10,7 +11,6 @@ vector<int> findAnagrams(string s, string p) {
         int match=0;
         for(char c:p) needs[c]++;
         int left=0,right=0;
-
         while(right<s.size()){
             char c1=s[right];
             if(needs.count(c1)) {
@@ -18,7 +18,6 @@ vector<int> findAnagrams(string s, string p) {
                 if(window[c1]==needs[c1]) match++;
             }
             right++;
-
             while(match==needs.size()){
                 char c2=s[left];
                 if(right-left==p.size()) res.push_back(left);
@@ -31,6 +30,7 @@ vector<int> findAnagrams(string s, string p) {
         }
         return res;
     }
+        
 只需要根据要求更改res就可以解决一类问题。
 
 
