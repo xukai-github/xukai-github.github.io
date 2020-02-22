@@ -1,8 +1,8 @@
-C++ unordered_map（哈希表）
-https://www.jianshu.com/p/56bb01df8ac7
+#### C++ unordered_map（哈希表）
+> https://www.jianshu.com/p/56bb01df8ac7
 
-滑动窗口：两个指针
-https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/solution/hua-dong-chuang-kou-tong-yong-si-xiang-jie-jue-zi-/
+#### 滑动窗口：两个指针
+> https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/solution/hua-dong-chuang-kou-tong-yong-si-xiang-jie-jue-zi-/
 
         vector<int> findAnagrams(string s, string p) {
                 unordered_map<char, int> window;
@@ -35,30 +35,30 @@ https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/solution/hua-dong
 
 
 
-c++accumulate函数，计算数组的和
-http://c.biancheng.net/view/682.html
+#### c++accumulate函数，计算数组的和
+> http://c.biancheng.net/view/682.html
 
 
 
-背包的01问题
+#### 背包的01问题
 
 
-sort函数，第三个参数如果比较复杂的正确表达形式
-http://c.biancheng.net/view/561.html
+#### sort函数，第三个参数如果比较复杂的正确表达形式
+> http://c.biancheng.net/view/561.html
 
 
 
-字符串的操作函数
-https://blog.csdn.net/tzheng2008/article/details/7342562
+#### 字符串的操作函数
+> https://blog.csdn.net/tzheng2008/article/details/7342562
 
 
-C++ 
+#### C++ 
 内联函数
 在类定义中的定义的函数都是内联函数，即使没有使用 inline 说明符。
-https://www.runoob.com/cplusplus/cpp-inline-functions.html
+> https://www.runoob.com/cplusplus/cpp-inline-functions.html
 
 
-volatile
+v#### olatile
 volatile 关键字是一种类型修饰符，用它声明的类型变量表示可以被某些编译器未知的因素（操作系统、硬件、其它线程等）更改。所以使用 volatile 告诉编译器不应对这样的对象进行优化。
 volatile 关键字声明的变量，每次访问时都必须从内存中取出值（没有被 volatile 修饰的变量，可能由于编译器的优化，从 CPU 寄存器中取值）
 const 可以是 volatile （如只读的状态寄存器）
@@ -66,19 +66,19 @@ const 可以是 volatile （如只读的状态寄存器）
 
 
 
-C 库宏 - assert()
+#### C 库宏 - assert()
 expression -- 这可以是一个变量或任何 C 表达式。如果 expression 为 TRUE，assert() 不执行任何动作。如果 expression 为 FALSE，assert() 会在标准错误 stderr 上显示错误消息，并中止程序执行。
 
 
 
-#pragma pack(n)
+#### pragma pack(n)
 设定结构体、联合以及类成员变量以 n 字节方式对齐
 如果申请的空间<n的大小，就要补全
-https://baike.baidu.com/item/%23pragma%20pack
+(https://baike.baidu.com/item/%23pragma%20pack)
 
 
 
-extern "C"
+#### extern "C"
 extern "C" 的作用是让 C++ 编译器将 extern "C" 声明的代码当作 C 语言代码处理，可以避免 C++ 因符号修饰导致代码不能和C语言库中的符号进行链接的问题。
 https://baike.baidu.com/item/extern%20%22C%22/15267013
 
