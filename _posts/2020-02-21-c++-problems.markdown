@@ -71,10 +71,9 @@ expression -- 这可以是一个变量或任何 C 表达式。如果 expression 
 
 
 
-#### pragma pack(n)
+#### [pragma pack(n)](https://baike.baidu.com/item/%23pragma%20pack)
 设定结构体、联合以及类成员变量以 n 字节方式对齐
 如果申请的空间<n的大小，就要补全
-(https://baike.baidu.com/item/%23pragma%20pack)
 
 
 
