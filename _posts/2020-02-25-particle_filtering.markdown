@@ -1,4 +1,4 @@
-#### 基于particle filtering的robot navigation问题
+### 基于particle filtering的robot navigation问题
 对particle filtering的解读：通过随机采样的点和不同加权的重采样，对目标区域中物体可能出现位置的估测。
 
 我开始拿到题目后，先是阅读了有关particle filtering的文档，里面的公式推导看的并不是很明白，大致明白了是根据前一个时间点预测下一个时间点的位置。
