@@ -30,11 +30,11 @@
    
    ![高斯分布](https://s2.ax1x.com/2020/02/26/3NiijS.png)
    
-   3.每个粒子都有他不同的高斯分布曲线，distance是均值，R作为协方差有个固定值就可以。如果我此时的在z[i]位于中间曲线的正中间，对于边上的高斯曲线pdf值就小，权重weight就小，此时中间曲线的权重就高。
+   3.每个粒子都有他不同的高斯分布曲线，可以把上面五个不同曲线的中心x坐标看做本题中不同的distance，R作为协方差有个固定值就可以。如果我此时的在z[i]位于中间曲线的正中间，对于边上的高斯曲线pdf值就小，权重weight就小，此时中间曲线的权重就高。
    
    4.分析清楚了高斯的权重关系，分析帕累托。我最开始上网搜到其的均值公式和PDF公式，翻译成python语言，打印关键值发现错误（粒子越来越稀疏）。
    
-   5.我又回到帕累托最开始的函数分布去看,distance就是X_min，在z[i]就是不断变化的x，我采用相对坐标设x=abs(z[i] - distance)，代入PDF公式 weights *= alpha * min ** alpha /x ** (alpha + 1) 就可以了。
+   5.我又回到帕累托最开始的函数分布去看,distance就是X_min，在z[i]就是不断变化的x，我采用相对坐标设x=abs(z[i] - distance)，跟上面高斯分布是一回事。代入PDF公式 weights *= alpha * min ** alpha /x ** (alpha + 1) 就可以了。
    
 ##### 为landmark和robot之间的距离增加随机误差，观察定位结果
    
@@ -99,7 +99,7 @@
               std = np.array([2, 4])
               u = np.array([heading, distance])
               predict(particles, u, std, dt=1.)  # 预测规则是粒子根据各自不同的方向和距离进行运动
-              zs = (np.linalg.norm(landmarks - center, axis=1) + (np.random.randn(NL) * sensor_std_err))  # 每个基石与中心的距离加上随机误差
+              zs = (np.linalg.norm(landmarks - center, axis=1) + (np.random.randn(NL) * sensor_std_err))  # 每个基石与粒子的距离加上随机误差
               update(particles, weights, z=zs, R=50,landmarks=landmarks)  # 根据观测结果中得到的位置pdf信息来更新权重，这里简单地假设是真实位置到观测位置的距离为高斯分布"""
               if neff(weights) < len(particles) / 2:
                   indexes = systematic_resample(weights)
@@ -253,3 +253,18 @@
 
 第三次改造结果（误差1000）
 ![第三次改造结果（误差1000）](https://s2.ax1x.com/2020/02/26/3Ni6UA.png)
+
+
+#### 联想到的问题
+
+1.Q：如果只有一个landmark会是什么结果？
+1.A：根据鼠标到landmark的距离围绕着landmark的圆线。
+
+2.Q：最少需要多少个landmark？
+2.A：最少需要三个且三个landmark必须不共线，只有一个的情况已经说过了，如果有两个landmark则必能连成线，一定会有情况在一条线上的任意一点到两个landmark距离一样，粒子就会形成一道直线。
+
+3.Q：从本质上来讲landmark的用处？
+3.A：在浅层的来讲：基于已知鼠标到landmarks的距离为distance，与landmarks的距离越接近distance的粒子权重越高，其实就是基于每个landmark画弧，经过不断重复采样得到集中的点。可以归纳为距离回归。
+
+4.Q：权重的计算是不是只能是高斯或者帕累托：
+4.A：不是的，只要是关于在z[i]与distance差值越小权重越高的关系式都可以，可以设计更好的计算权重的方法。
