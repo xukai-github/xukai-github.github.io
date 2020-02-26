@@ -34,7 +34,7 @@
    
    4.分析清楚了高斯的权重关系，分析帕累托。我最开始上网搜到其的均值公式和PDF公式，翻译成python语言，打印关键值发现错误（粒子越来越稀疏）。
    
-   5.我又回到帕累托最开始的函数分布去看,distance就是X_min，在z[i]就是不断变化的x，我采用相对坐标设x=abs(z[i] - distance)，代入PDF公式就可以了。
+   5.我又回到帕累托最开始的函数分布去看,distance就是X_min，在z[i]就是不断变化的x，我采用相对坐标设x=abs(z[i] - distance)，代入PDF公式 weights *= alpha * min ** alpha /x ** (alpha + 1) 就可以了。
    
 ##### 为landmark和robot之间的距离增加随机误差，观察定位结果
    
