@@ -83,5 +83,29 @@ expression -- 这可以是一个变量或任何 C 表达式。如果 expression 
 extern "C" 的作用是让 C++ 编译器将 extern "C" 声明的代码当作 C 语言代码处理，可以避免 C++ 因符号修饰导致代码不能和C语言库中的符号进行链接的问题。
 
 
+#### 编写若干个整数（以0为结束），逆序存入一个单向链表中
+
+        #include <stdio.h>
+        typedef struct node {
+                int val;
+                struct node *next;
+        }*nodeptr;
+        void main() {
+                nodeptr head = (nodeptr)malloc(sizeof(nodeptr));
+                nodeptr p;
+                int number;
+                head->next = NULL;
+                do {
+                        scanf("%d", &number);
+                        p = (nodeptr)malloc(sizeof(nodeptr));
+                        p->next = head->next;
+                        head->next = p;
+                        p->val = number;
+                } while (number != 0);
+                while (p != NULL) {
+                        printf("%d", p->val);
+                        p = p->next;
+                }
+        }
 
 
