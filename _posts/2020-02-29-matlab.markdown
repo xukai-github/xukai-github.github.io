@@ -1,0 +1,11 @@
+最近烦气之前在matlab上跑的东西，想起之前磕磕绊绊学习的过程，还是决定从新系统的学习下这个软件，在b站找了台大教授的课跟着听，把比较重要的搬运过来。
+
+#### format
+format SHORT  |   Scaled fixed point format with 5 digits.
+format LONG   |   Scaled fixed point format with 15 digits for doubleand 7 digits for single.
+format SHORTE |   Floating point format with 5 digits.
+format LONGE  |   Floating point format with 15 digits for double and 7 digits for single.
+format SHORTG |   Best of fixed or floating point format with 5 digits.
+format LONGG  |   Best of fixed or floating point format with 15 digits for double and 7 digits for single.
+format SHORTENG |  Engineering format that has at least 5 digits and a power that is a multiple of three
+format LONGENG |  Engineering format that has exactly 16 significant
